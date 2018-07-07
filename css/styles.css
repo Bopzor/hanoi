@@ -1,0 +1,25 @@
+body {
+  font-family: monospace;
+}
+
+h1 {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 25px 0 15px 0;
+  color: #333;
+  text-align: center;
+}
+
+hr {
+  border-color: #FFF;
+}
+
+#game {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#game canvas {
+  background-color: #333;
+}
