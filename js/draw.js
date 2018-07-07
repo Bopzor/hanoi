@@ -3,23 +3,11 @@ const LAYERS_COLORS = buildColorPalette(TOWER_NB_LAYERS);
 const SELECTED_LAYER_COLOR = getRandomColor();
 
 function getRandomColor() {
-  const colorConstructor = [];
+  var r = parseInt(Math.random() * 256);
+  var g = parseInt(Math.random() * 256);
+  var b = parseInt(Math.random() * 256);
 
-  let r = parseInt(Math.random() * 256);
-  let g = parseInt(Math.random() * 256);
-  let b = parseInt(Math.random() * 256);
-
-  colorConstructor.push(r, g, b);
-
-  for (let i = 0; i < colorConstructor.length; i++) {
-    if (colorConstructor[i] < 16) {
-      colorConstructor[i] = `0${colorConstructor[i].toString(16)}`;
-    } else {
-      colorConstructor[i] = colorConstructor[i].toString(16);
-    }
-  }
-
-  const color = new Values(`#${colorConstructor[0]}${colorConstructor[1]}${colorConstructor[2]}`)
+  const color = new Values(`rgb(${r}, ${g}, ${b})`);
 
   return color;
 
