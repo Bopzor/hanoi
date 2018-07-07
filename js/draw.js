@@ -34,7 +34,7 @@ function buildColorPalette(n) {
   let darker = 0;
 
   for (let i = 1; i < n; i++) {
-    darker += 100 / n;
+    darker += 100 / (n + 1);
 
     palette.push(primaryColor.shade(darker));
 
