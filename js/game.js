@@ -3,7 +3,9 @@ function Game(root) {
   this.ctx = this.canvas.getContext("2d");
 
   this.towers = [];
+
   this.layerSelected = null;
+
   this.animation = {
     animated: false,
     fromTower: null,
@@ -50,13 +52,9 @@ function Game(root) {
       layer.selected = true;
       this.layerSelected = layer;
 
-      this.redraw();
-
     } else if (layer === this.layerSelected && this.layerSelected !== null) {
       this.layerSelected.selected = false;
       this.layerSelected = null;
-
-      this.redraw();
 
     } else {
       
@@ -67,6 +65,7 @@ function Game(root) {
 
       }
     }
+      this.redraw();
   }
 
   Game.prototype.getLayerAt = function(x, y) {
@@ -96,14 +95,17 @@ function Game(root) {
         return true;
       }    
     }
+
     return false;
   }
 
   Game.prototype.canSelectTower = function(tower) {
     if (this.layerSelected === null) {
       return false
-    } else if (tower !==null && (tower.layers.length === 0 || (tower.layers[tower.layers.length - 1].size > this.layerSelected.size))) {
+
+    } else if (tower !== null && (tower.layers.length === 0 || (tower.layers[tower.layers.length - 1].size > this.layerSelected.size))) {
       return true;
+      
     } else {
       return false;
     }

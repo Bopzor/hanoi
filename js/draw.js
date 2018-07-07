@@ -10,7 +10,6 @@ function getRandomColor() {
   const color = new Values(`rgb(${r}, ${g}, ${b})`);
 
   return color;
-
 }
 
 function buildColorPalette(n) {
@@ -25,7 +24,6 @@ function buildColorPalette(n) {
     darker += 100 / (n + 1);
 
     palette.push(primaryColor.shade(darker));
-
   }
 
   return palette;
