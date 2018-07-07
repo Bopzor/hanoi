@@ -58,7 +58,6 @@ function drawTower(ctx, tower) {
   drawRect(ctx, poleTowerRect, TOWER_COLOR);
   drawRect(ctx, baseTowerRect, TOWER_COLOR);
 
-
   if (tower.layers.length > 0) {
     if (tower.layers[0].size < tower.layers[tower.layers.length - 1].size) {
       tower.layers.reverse();
