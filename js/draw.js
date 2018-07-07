@@ -55,8 +55,8 @@ function drawTower(ctx, tower) {
   const baseTowerRect = compute.baseRect(tower);
   const poleTowerRect = compute.poleRect(tower);
 
-  drawRect(ctx, baseTowerRect, TOWER_COLOR);
   drawRect(ctx, poleTowerRect, TOWER_COLOR);
+  drawRect(ctx, baseTowerRect, TOWER_COLOR);
 
 
   if (tower.layers.length > 0) {
