@@ -4,6 +4,8 @@ function Game(root) {
 
   this.towers = [];
 
+  this.startTower = null;
+
   this.layerSelected = null;
 
   this.animation = {
@@ -26,8 +28,8 @@ function Game(root) {
 
     this.towers.push(tower1, tower2, tower3);
 
-    var startTower = parseInt(Math.random() * this.towers.length);
-    this.towers[startTower].fill(TOWER_NB_LAYERS);
+    this.startTower = parseInt(Math.random() * this.towers.length);
+    this.towers[this.startTower].fill(TOWER_NB_LAYERS);
 
     this.redraw();
   }
@@ -39,14 +41,14 @@ function Game(root) {
       drawAnnimatedLayer(this.ctx, this.layerSelected, this.animation);
     }
 
-    for (let i = 0; i < this.towers.length; i++) {
+    for (var i = 0; i < this.towers.length; i++) {
       drawTower(this.ctx, this.towers[i]);
     }
   }
 
   Game.prototype.onClick = function(e) {
-    const tower = this.getTowerAt(e.offsetX, e.offsetY);
-    const layer = this.getLayerAt(e.offsetX, e.offsetY);
+    var tower = this.getTowerAt(e.offsetX, e.offsetY);
+    var layer = this.getLayerAt(e.offsetX, e.offsetY);
 
     if (this.canSelectLayer(layer)) {
       layer.selected = true;
@@ -69,15 +71,15 @@ function Game(root) {
   }
 
   Game.prototype.getLayerAt = function(x, y) {
-    var layer = null
-    const p = {x: x, y: y};
+    var layer = null;
+    var p = {x: x, y: y};
 
-    for (let i = 0; i < this.towers.length; i++) {
+    for (var i = 0; i < this.towers.length; i++) {
       if (this.towers[i].layers.length > 0) {
 
-        for (let j = 0; j < this.towers[i].layers.length; j++) {
-          const currentLayer = this.towers[i].layers[j];
-          const rect = compute.layerRect(currentLayer, j)
+        for (var j = 0; j < this.towers[i].layers.length; j++) {
+          var currentLayer = this.towers[i].layers[j];
+          var rect = compute.layerRect(currentLayer, j)
           
           if (compute.inBounds(p, rect)) {
             layer = this.towers[i].layers[j];
@@ -113,10 +115,10 @@ function Game(root) {
 
   Game.prototype.getTowerAt = function(x, y) {
     var tower = null;
-    const p = {x: x, y: y};
+    var p = {x: x, y: y};
 
-    for (let i = 0; i < this.towers.length; i++) {
-      const currentTower = compute.towerRect(this.towers[i]);
+    for (var i = 0; i < this.towers.length; i++) {
+      var currentTower = compute.towerRect(this.towers[i]);
 
       if (compute.inBounds(p, currentTower)) {
         tower = this.towers[i];
@@ -188,8 +190,8 @@ function Tower(position) {
   }
 
   Tower.prototype.fill = function(n) {
-    for (let i = 0; i < TOWER_NB_LAYERS; ++i) {
-      const layer = {
+    for (var i = 0; i < TOWER_NB_LAYERS; ++i) {
+      var layer = {
         size: i + 1,
         selected: false,
         tower: this,
