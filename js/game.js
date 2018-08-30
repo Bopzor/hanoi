@@ -4,8 +4,6 @@ function Game(root) {
 
   this.towers = [];
 
-  this.startTower = null;
-
   this.layerSelected = null;
 
   this.animation = {
@@ -28,8 +26,8 @@ function Game(root) {
 
     this.towers.push(tower1, tower2, tower3);
 
-    this.startTower = parseInt(Math.random() * this.towers.length);
-    this.towers[this.startTower].fill(TOWER_NB_LAYERS);
+    var startTower = parseInt(Math.random() * this.towers.length);
+    this.towers[startTower].fill(TOWER_NB_LAYERS);
 
     this.redraw();
   }
@@ -103,7 +101,7 @@ function Game(root) {
 
   Game.prototype.canSelectTower = function(tower) {
     if (this.layerSelected === null) {
-      return false
+      return false;
 
     } else if (tower !== null && (tower.layers.length === 0 || (tower.layers[tower.layers.length - 1].size > this.layerSelected.size))) {
       return true;
