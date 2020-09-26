@@ -1,4 +1,4 @@
-FROM: [Nilscox](https://github.com/nilscox/hanoi)
+FROM: [nilscox](https://github.com/nilscox/hanoi)
 
 # Hanoï
 
